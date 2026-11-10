@@ -1,0 +1,42 @@
+{
+  "name": "dsh-browser-bridge",
+  "version": "0.2.0",
+  "private": true,
+  "type": "module",
+  "description": "DeepSeek Harness 插件：通过浏览器扩展把用户真实浏览器（已登录标签页）接给模型直接分析——读元素、跑 JS、抓 API 请求与控制台，无需再往控制台粘贴代码。",
+  "main": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "index.js",
+    "src",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "icon.svg",
+    "README.md"
+  ],
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "browser",
+    "chrome-extension",
+    "cdp"
+  ],
+  "license": "MIT",
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "scripts": {
+    "test": "node test/protocol.test.mjs"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Live Browser Bridge",
+    "description": "Connects the user's own authorized browser tabs to the model: inspect elements, run JS, capture API requests and console logs without pasting code into DevTools."
+  }
+}

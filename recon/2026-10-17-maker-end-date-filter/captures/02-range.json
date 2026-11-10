@@ -1,0 +1,33 @@
+{
+  "seq": 3,
+  "capturedAt": "2026-10-17T22:48:40+08:00",
+  "method": "POST",
+  "url": "https://deltabogart-prod.centricsoftware.com/csi-requesthandler/RequestHandler?&request.preventCache=1792248520083",
+  "status": null,
+  "mimeType": "text/javascript",
+  "durationMs": null,
+  "note": "Range variant of 01-single-date.json. Same fields; only the two Qry.XML DValue lines differ. The page was reloaded before the response landed, so status/duration were not captured; the query text is the evidence.",
+  "fields": {
+    "Module": "Search",
+    "Operation": "QueryByXML",
+    "URL": "centric://APPAREL/Views",
+    "OutputJSON": "1",
+    "Fmt.Complete": "Ref",
+    "Fmt.Complete.Max": "4999",
+    "Fmt.AC.Rights": "Current",
+    "Fmt.Attr.Info": "Mid",
+    "Qry.Limit.Filter": "10000",
+    "Crew.Scope": "Result",
+    "Fmt.Crew": "Name",
+    "Qry.Limit.Begin": "1",
+    "Qry.Limit.End": "20"
+  },
+  "qryXML": "<?xml version=\"1.0\" encoding=\"utf-8\" ?><Query><Node Parameter=\"Type\" Op=\"EQ\" Value=\"SupplierRequest\"/><Attribute Id=\"RequestType\" Op=\"EQ\" SValue=\"ProductType:Style\"/><OR><Attribute Id=\"State\" Op=\"EQ\" SValue=\"SupplierRequestState:Issued\"/><Attribute Id=\"State\" Op=\"EQ\" SValue=\"SupplierRequestState:Complete\"/></OR><Attribute Id=\"bogroutineseq9askip\" Op=\"EQ\" SValue=\"false\"/><Attribute Id=\"Node Name\" Op=\"EQ\" Path=\"(SupplierRequest)Child:bogroutineseq9a(LookupItem)\" SValue=\"Marker\"/><Attribute Id=\"bogjobreqcd\" Op=\"GT\" DValue=\"1735747200000\"/><Attribute Id=\"bogroutineseq9acd\" Op=\"GE\" DValue=\"1790784000000\"/><Attribute Id=\"bogroutineseq9acd\" Op=\"LE\" DValue=\"1792252799000\"/><OrderByAttribute Id=\"bogroutineseq9as\" Path=\"\"/></Query>",
+  "filter": {
+    "column": "Maker End Date",
+    "field": "bogroutineseq9acd",
+    "from": "2026-10-01",
+    "to": "2026-10-17",
+    "timezone": "UTC+8"
+  }
+}

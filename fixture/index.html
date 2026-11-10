@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <title>Fixture 页面</title>
+  <style>
+    body { font: 14px/1.6 system-ui, sans-serif; margin: 40px; color: #0f172a; }
+    h1 { color: #1e40af; }
+    input { padding: 6px 8px; border: 1px solid #cbd5e1; border-radius: 6px; }
+    button { padding: 6px 12px; margin-right: 8px; border: 0; border-radius: 6px; background: #2563eb; color: #fff; cursor: pointer; }
+    #echo { color: #475569; min-height: 1.6em; }
+  </style>
+</head>
+<body>
+  <h1 id="title">Fixture 页面</h1>
+  <p class="lead" data-testid="lead">用于验证 DSH 实时浏览器桥：元素、JS、网络、控制台。</p>
+
+  <ul id="items">
+    <li>A</li>
+    <li>B</li>
+    <li>C</li>
+  </ul>
+
+  <dsh-card></dsh-card>
+
+  <p><label>搜索 <input id="q" placeholder="输入关键词" autocomplete="off"></label></p>
+  <p id="echo"></p>
+  <p>
+    <button id="search">查询</button>
+    <button id="save">保存</button>
+    <button id="slow">慢请求</button>
+  </p>
+
+  <script>
+    console.info('fixture ready', { href: location.href });
+
+    const card = document.querySelector('dsh-card');
+    const root = card.attachShadow({ mode: 'open' });
+    root.innerHTML = '<style>span{color:#2563eb;font-weight:600}</style>' +
+      '<span class="shadow-text">Shadow 内容</span> <button id="inner">内部按钮</button>';
+    root.querySelector('#inner').addEventListener('click', () => console.log('inner clicked'));
+
+    document.querySelector('#q').addEventListener('input', (event) => {
+      document.querySelector('#echo').textContent = event.target.value;
+    });
+
+    document.querySelector('#search').addEventListener('click', async () => {
+      const q = document.querySelector('#q').value;
+      const res = await fetch('/api/list?q=' + encodeURIComponent(q));
+      const data = await res.json();
+      console.log('search', q, data);
+    });
+
+    document.querySelector('#save').addEventListener('click', async () => {
+      const res = await fetch('/api/echo', {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({ sku: 'A1', qty: 2 }),
+      });
+      const data = await res.json();
+      console.log('saved', data);
+      document.querySelector('#title').textContent = '已保存';
+    });
+
+    document.querySelector('#slow').addEventListener('click', async () => {
+      const res = await fetch('/api/slow');
+      console.warn('slow done', await res.json());
+    });
+  </script>
+</body>
+</html>

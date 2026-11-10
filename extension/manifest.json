@@ -1,0 +1,37 @@
+{
+  "manifest_version": 3,
+  "name": "DSH 实时浏览器桥",
+  "version": "0.2.0",
+  "description": "把当前标签页（真实登录态）直接交给 DeepSeek Harness 分析：读取页面元素、运行 JS、抓取 API 请求与控制台日志。",
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAxZGrOOZ4UgmwtS3AmHznrTfpUOwD/26Os6DcbyKq4Au5znC3c2BFVSyJnwlMF0LL9cMr4zL6bTLsJpycKFO2oFERJnsuSyoJ3hvwDvccuI7kkJ/ZSmd3EXp5fT4b1+n2BOqVdcacVKKo+QWix6Fr7M53ZK4HngLS3BFyN7nbbCWYmnDOhDe5A5No1Pecc834keSx7nVEdVJ6OdVqZmNMjWn4HzFiaEPN7eqcI7FEZodfkETK2FMdvSMYkWaqXRzP9u+YoEG0Ppw+n8j8JW0GGnPiVJEpQvYgCob1ZtTjv+veI45kJVng8BMRh0/tcrJKqkxWH8yZ9xU4YNk095/GNwIDAQAB",
+  "minimum_chrome_version": "116",
+  "permissions": [
+    "debugger",
+    "tabs",
+    "storage",
+    "alarms"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "sw.js",
+    "type": "module"
+  },
+  "action": {
+    "default_title": "DSH 浏览器桥",
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon-16.png",
+      "32": "icons/icon-32.png",
+      "48": "icons/icon-48.png",
+      "128": "icons/icon-128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon-16.png",
+    "32": "icons/icon-32.png",
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
+  }
+}

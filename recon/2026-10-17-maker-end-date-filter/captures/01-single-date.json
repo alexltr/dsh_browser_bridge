@@ -1,0 +1,49 @@
+{
+  "seq": 1,
+  "capturedAt": "2026-10-17T23:30:21+08:00",
+  "method": "POST",
+  "url": "https://deltabogart-prod.centricsoftware.com/csi-requesthandler/RequestHandler?&request.preventCache=1792251021225",
+  "status": 200,
+  "mimeType": "text/javascript",
+  "durationMs": 45090,
+  "contentType": "multipart/form-data",
+  "fields": {
+    "Module": "Search",
+    "Operation": "QueryByXML",
+    "URL": "centric://APPAREL/Views",
+    "OutputJSON": "1",
+    "Fmt.Complete": "Ref",
+    "Fmt.Complete.Max": "4999",
+    "Fmt.AC.Rights": "Current",
+    "Fmt.Attr.Info": "Mid",
+    "Qry.Limit.Filter": "10000",
+    "Crew.Scope": "Result",
+    "Fmt.Crew": "Name",
+    "Qry.Limit.Begin": "1",
+    "Qry.Limit.End": "20"
+  },
+  "multipart": {
+    "Dep.Path": [
+      "Child:bogroutineseq9a",
+      "Child:LineItems/Child:SRLineItemProduct/Child:Attributes/Child:bogcollectioncode",
+      "Child:LineItems/Child:SRLineItemProduct/Child:Images/Index:",
+      "Child:LineItems/Child:SRLineItemProduct/Child:Category1",
+      "Child:LineItems/Child:SRLineItemProduct/Child:ParentSeason",
+      "Child:LineItems/Child:SRLineItemProduct/Child:Attributes/Child:__Parent__",
+      "Child:boglotnumber",
+      "Child:LineItems/Child:SRLineItemPackage/Child:DataSheets",
+      "Child:SRSeason/Child:bogcustomergroup",
+      "Child:bogteamno",
+      "Child:bogroutineseq1ResponsibleStaff",
+      "Child:bogroutineseq9aResponsibleStaff"
+    ]
+  },
+  "qryXML": "<?xml version=\"1.0\" encoding=\"utf-8\" ?><Query><Node Parameter=\"Type\" Op=\"EQ\" Value=\"SupplierRequest\"/><Attribute Id=\"RequestType\" Op=\"EQ\" SValue=\"ProductType:Style\"/><OR><Attribute Id=\"State\" Op=\"EQ\" SValue=\"SupplierRequestState:Issued\"/><Attribute Id=\"State\" Op=\"EQ\" SValue=\"SupplierRequestState:Complete\"/></OR><Attribute Id=\"bogroutineseq9askip\" Op=\"EQ\" SValue=\"false\"/><Attribute Id=\"Node Name\" Op=\"EQ\" Path=\"(SupplierRequest)Child:bogroutineseq9a(LookupItem)\" SValue=\"Marker\"/><Attribute Id=\"bogjobreqcd\" Op=\"GT\" DValue=\"1735747200000\"/><Attribute Id=\"bogroutineseq9acd\" Op=\"GE\" DValue=\"1791993600000\"/><Attribute Id=\"bogroutineseq9acd\" Op=\"LE\" DValue=\"1792079999000\"/><OrderByAttribute Id=\"bogroutineseq9as\" Path=\"\"/></Query>",
+  "filter": {
+    "column": "Maker End Date",
+    "field": "bogroutineseq9acd",
+    "from": "2026-10-15",
+    "to": "2026-10-15",
+    "timezone": "UTC+8"
+  }
+}

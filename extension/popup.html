@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DSH 实时浏览器桥</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="head">
+    <img class="logo" src="icons/icon-48.png" alt="">
+    <div class="titles">
+      <h1>DSH 实时浏览器桥</h1>
+      <p id="subtitle">正在连接 DSH…</p>
+    </div>
+    <span id="status" class="pill pill-off">未连接</span>
+  </header>
+
+  <div id="error" class="error hidden"></div>
+
+  <section class="card" id="currentCard">
+    <div class="row">
+      <div class="grow">
+        <div id="currentTitle" class="tab-title">当前标签页</div>
+        <div id="currentUrl" class="tab-url">—</div>
+      </div>
+    </div>
+    <button id="toggleGrant" class="primary" disabled>授权当前标签页</button>
+    <p class="note">授权后该标签页会显示「DSH 正在调试」提示条，这是 chrome.debugger 的正常提示。</p>
+  </section>
+
+  <section class="grants">
+    <h2>已授权 <span id="grantCount" class="count">0</span></h2>
+    <ul id="grantList" class="grant-list"></ul>
+    <p id="grantEmpty" class="empty">还没有授权任何标签页。打开目标网页后点上面的按钮。</p>
+  </section>
+
+  <p class="hint">授权后直接在 DSH 对话里说「分析当前页面」：读元素、跑 JS、看接口请求与控制台日志，不用再往控制台粘贴代码。</p>
+
+  <details class="advanced" id="advanced">
+    <summary>高级设置</summary>
+    <label>宿主端口 <input id="port" type="number" min="1" max="65535" step="1"></label>
+    <label>配对令牌（可选） <input id="token" type="text" placeholder="留空表示不校验"></label>
+    <button id="save" class="ghost">保存并重连</button>
+  </details>
+
+  <footer class="foot">仅在本机 127.0.0.1 通信 · <span id="version">v0.1.0</span></footer>
+
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+﻿# 本地调试产物
+_probe/
+_scratch/
+*.log
+npm-debug.log*
+
+# Node
+node_modules/
+
+# 浏览器测试 profile
+**/e2e-profile/
+**/live-profile/
+
+# 扩展打包私钥（如需分发 CRX，请自行生成并妥善保管）
+extension/key.pem
+extension/*.crx

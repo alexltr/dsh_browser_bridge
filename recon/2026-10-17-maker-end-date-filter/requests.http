@@ -1,0 +1,37 @@
+// Maker End Date filter — single day (2026-10-15) on Job Requests.
+// Cookie is NOT stored: export it from the browser and pass it in DSH_COOKIE.
+//
+//   DSH_COOKIE='JSESSIONID=…; SecurityTokenURL=…' bash requests.http
+//
+// To filter a range, change the two Qry.XML lines to the start/end day.
+// The rest of Qry.XML is the saved View's filter — keep it if you want the same rows.
+
+curl -sS 'https://deltabogart-prod.centricsoftware.com/csi-requesthandler/RequestHandler' \
+  -H "Cookie: $DSH_COOKIE" \
+  -H 'X-Requested-With: XMLHttpRequest' \
+  -F 'Module=Search' \
+  -F 'Operation=QueryByXML' \
+  -F 'URL=centric://APPAREL/Views' \
+  -F 'OutputJSON=1' \
+  -F 'Fmt.Complete=Ref' \
+  -F 'Fmt.Complete.Max=4999' \
+  -F 'Fmt.AC.Rights=Current' \
+  -F 'Fmt.Attr.Info=Mid' \
+  -F 'Qry.Limit.Filter=10000' \
+  -F 'Crew.Scope=Result' \
+  -F 'Fmt.Crew=Name' \
+  -F 'Qry.Limit.Begin=1' \
+  -F 'Qry.Limit.End=20' \
+  -F 'Dep.Path=Child:bogroutineseq9a' \
+  -F 'Dep.Path=Child:LineItems/Child:SRLineItemProduct/Child:Attributes/Child:bogcollectioncode' \
+  -F 'Dep.Path=Child:LineItems/Child:SRLineItemProduct/Child:Images/Index:' \
+  -F 'Dep.Path=Child:LineItems/Child:SRLineItemProduct/Child:Category1' \
+  -F 'Dep.Path=Child:LineItems/Child:SRLineItemProduct/Child:ParentSeason' \
+  -F 'Dep.Path=Child:LineItems/Child:SRLineItemProduct/Child:Attributes/Child:__Parent__' \
+  -F 'Dep.Path=Child:boglotnumber' \
+  -F 'Dep.Path=Child:LineItems/Child:SRLineItemPackage/Child:DataSheets' \
+  -F 'Dep.Path=Child:SRSeason/Child:bogcustomergroup' \
+  -F 'Dep.Path=Child:bogteamno' \
+  -F 'Dep.Path=Child:bogroutineseq1ResponsibleStaff' \
+  -F 'Dep.Path=Child:bogroutineseq9aResponsibleStaff' \
+  -F 'Qry.XML=<?xml version="1.0" encoding="utf-8" ?><Query><Node Parameter="Type" Op="EQ" Value="SupplierRequest"/><Attribute Id="RequestType" Op="EQ" SValue="ProductType:Style"/><OR><Attribute Id="State" Op="EQ" SValue="SupplierRequestState:Issued"/><Attribute Id="State" Op="EQ" SValue="SupplierRequestState:Complete"/></OR><Attribute Id="bogroutineseq9askip" Op="EQ" SValue="false"/><Attribute Id="Node Name" Op="EQ" Path="(SupplierRequest)Child:bogroutineseq9a(LookupItem)" SValue="Marker"/><Attribute Id="bogjobreqcd" Op="GT" DValue="1735747200000"/><Attribute Id="bogroutineseq9acd" Op="GE" DValue="1791993600000"/><Attribute Id="bogroutineseq9acd" Op="LE" DValue="1792079999000"/><OrderByAttribute Id="bogroutineseq9as" Path=""/></Query>'

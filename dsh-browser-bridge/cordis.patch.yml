@@ -1,0 +1,18 @@
+# dsh-browser-bridge 组合层：把插件行插入 profile 组合。
+#
+# 本文件由 package.json 的 dsh.bundle.patch 声明，`dsh plugin add` 安装本包时
+# 会自动把下面的行合入 profile 组合（按包名引用，loader 从 profile 依赖解析）。
+#
+# 用户想改配置时不要改这个文件：在自己的 cordis.patch.yml 里按相同 id 写一整行
+# 覆盖即可（后面的层按行覆盖；config 整体替换，不深合并）。
+- insert:
+    - id: dsh-browser-bridge
+      name: dsh-browser-bridge
+      config:
+        # 本地 WebSocket 端口，需与扩展「高级设置」里的端口一致。
+        port: 51919
+        # 可选：配对令牌（两端一致才放行）。留空表示只校验扩展来源。
+        token: ''
+        # 允许连接的扩展 ID。默认就是随仓库提供的扩展（manifest.key 固定了 ID）。
+        extensionIds:
+          - hlfcjpadcahkpbdnhomoagoekopdmnfo

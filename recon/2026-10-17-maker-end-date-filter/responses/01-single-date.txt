@@ -1,0 +1,23 @@
+HTTP 200 · text/javascript · 45,090 ms · 103,665 bytes
+Content-Type: text/javascript;charset=UTF-8
+pirequestextime: 43909  (server-side, ms)
+
+({Status:"Successful",CompleteResultRefs:{ref:[
+"C28627832","C28704545","C28770382","C28822986","C28869021","C28870779",
+"C28893462","C28905330","C28913634","C28936302","C28936719","C28975968",
+"C28975975","C28987231","C29003561","C29006756","C29009565","C29009566",
+"C29012449","C29015723","C29018499","C29024760","C29061214","C29066456",
+"C29076756","C29081871","C29081793","C29099107","C29106295","C29127081",
+"C29136261","C29141535","C29154751","C29159950","C29175925","C29176519",
+"C29181185","C29186584","C29205604","C29208391","C29213197","C29225140",
+"C29225247","C29226132","C29226097","C29226556","C29226363","C29229475",
+"C29232928","C29241388"
+]},NODES:{ResultNode:[{$Name:"PFD260024637",$Type:"SupplierRequest",
+  $URL:"C28627832",…,bogroutineseq9acd:1792056600,…}]}}
+
+refs returned: 50
+sample row: $URL C28627832, bogroutineseq9acd = 1792056600
+            = 2026-10-15 17:30 UTC+8  (inside the requested day)
+
+Full body (103 KB of nodes) trimmed to the proof above; re-run
+requests.http to get it. Note the body is a JS object literal, not JSON.
